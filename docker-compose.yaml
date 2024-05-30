@@ -1,0 +1,17 @@
+version: '1'
+services:
+  rag-playbook:
+    build:
+      dockerfile: dockerfile
+    shm_size: 8G
+    network_mode: "host"
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    environment:
+      - NVIDIA_API_KEY=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
+    volumes:
+      - ${PWD}:/workspace/rag/
+    command: jupyter lab --no-browser --allow-root --ip=0.0.0.0 --port=9999 --NotebookApp.token "" --NotebookApp.password "" --notebook-dir "/workspace/rag/"
+    ports:
+      - "9999:9999"

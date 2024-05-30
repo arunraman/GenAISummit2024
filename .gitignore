@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+*.pdf
+embed/*.faiss
+embed/*.pkl
+.DS_Store
